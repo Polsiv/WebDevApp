@@ -5,8 +5,8 @@ import './CharacterList.css';
 function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [speciesSearchTerm, setSpeciesSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(() => localStorage.getItem('name_filter') || '');
+  const [speciesSearchTerm, setSpeciesSearchTerm] = useState(() => localStorage.getItem('species_filter') || '');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

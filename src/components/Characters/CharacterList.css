@@ -111,3 +111,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+.navbar.dark {
+  background-color: #222;
+  color: #fff;
+}
+
+.theme-toggle-button {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.character-container h1 {
+  color: #3563E9;
+}

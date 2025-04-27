@@ -35,7 +35,7 @@ function CharacterList() {
   };
 
     fetchCharacters();
-  }, []) //It tells React:"Run this useEffect only once — when the component first loads.";
+  }, []); //It tells React: "Run this useEffect only once — when the component first loads."
 
 
   useEffect(() => 

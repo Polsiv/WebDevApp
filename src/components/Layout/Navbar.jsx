@@ -1,8 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import { ThemeContext } from '../Context/ThemeContext';
+import { useContext } from 'react';
 
 function Navbar() {
   const location = useLocation();
+  const { toggle } = useContext(ThemeContext);
 
   var username = localStorage.getItem('username');
 
@@ -35,6 +38,7 @@ function Navbar() {
               </div>
             )}
           </div>
+          <button onClick={toggle} className='the-button'>Toggle Theme</button>
         </div>
       </div>
     </nav>

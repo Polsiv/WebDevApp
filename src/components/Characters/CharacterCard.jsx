@@ -1,3 +1,5 @@
+import './CharacterCard.css';
+
 function CharacterCard({ character }) {
   const { name, images, species } = character;
   const fullName = `${name.first} ${name.middle || ''} ${name.last}`.trim();

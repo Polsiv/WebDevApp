@@ -69,3 +69,45 @@ button:focus-visible {
 input, button, textarea, select {
   font: inherit;
 }
+
+/* dark-light*/
+
+body.light {
+  --background-color: white;
+  --text-color: black;
+}
+
+body.dark {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-username {
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.navbar a {
+  color: var(--text-color);
+}
+
+.navbar a.active {
+  font-weight: bold;
+}
+
+.the-button {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

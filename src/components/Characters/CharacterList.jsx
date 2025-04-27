@@ -6,6 +6,7 @@ function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [speciesSearchTerm, setSpeciesSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -41,47 +42,71 @@ function CharacterList() {
   useEffect(() => 
   {
       const results = characters.filter(character =>
-          character.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          character.name.last.toLowerCase().includes(searchTerm.toLowerCase())
+          (character.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          character.name.last.toLowerCase().includes(searchTerm.toLowerCase())) &&
+          character.species.toLowerCase().includes(speciesSearchTerm.toLowerCase())
       );
-    setFilteredCharacters(results);
-  }, [searchTerm, characters]);
+      setFilteredCharacters(results);
+  },  [searchTerm,speciesSearchTerm, characters]);
 
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+  const handleSearch = (e) => 
+  {
+      setSearchTerm(e.target.value);
+      localStorage.setItem("name_filter", e.target.value);
+  };
+  
+  const handleSpeciesSearch = (e) => 
+  {
+    setSpeciesSearchTerm(e.target.value);
+    localStorage.setItem("species_filter", e.target.value);
   };
 
-  if (loading) {
-    return <div className="loading">Cargando personajes...</div>;
+
+  if (loading) 
+  {
+      return <div className="loading">Cargando personajes...</div>;
   }
 
-  if (error) {
+  if (error) 
+  {
     return <div className="error">Error: {error}</div>;
   }
 
   return (
     <div className="character-container">
-      <h1>Personajes de Futurama</h1>
-      
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Buscar personaje por nombre"
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-input"
-        />
-      </div>
-      
-      {filteredCharacters.length === 0 ? (
-        <div className="no-results">No se encontraron personajes con ese nombre</div>
-      ) : (
-        <div className="character-grid">
-          {filteredCharacters.map(character => (
-            <CharacterCard key={character.id} character={character} />
-          ))}
-        </div>
-      )}
+        <h1>Personajes de Futurama</h1>
+        
+        <div className='search-wrapper'>
+          <div className="search-container">
+              <input
+                type="text"
+                placeholder="Buscar personaje por nombre"
+                value={searchTerm}
+                onChange={handleSearch}
+                className="search-input"
+              />
+          </div>
+          
+          <div className="search-container">
+              <input
+                type="text"
+                placeholder="Buscar personaje por especie"
+                value={speciesSearchTerm}
+                onChange={handleSpeciesSearch}
+                className="search-input"
+              />
+          </div>
+        </div >
+        
+        {filteredCharacters.length === 0 ? (
+          <div className="no-results">No se encontraron personajes con ese nombre</div>
+        ) : (
+          <div className="character-grid">
+            {filteredCharacters.map(character => (
+              <CharacterCard key={character.id} character={character} />
+            ))}
+          </div>
+        )}
     </div>
   );
 }

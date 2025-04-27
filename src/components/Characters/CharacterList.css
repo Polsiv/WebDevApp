@@ -126,3 +126,13 @@
 .character-container h1 {
   color: #3563E9;
 }
+
+.search-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.search-container {
+  width: 100%;
+}

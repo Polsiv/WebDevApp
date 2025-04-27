@@ -1,0 +1,11 @@
+body.light {
+    --card-bg: #ffffff;
+    --text-color: #000000;
+  }
+  
+  body.dark {
+    --card-bg: #1e1e1e;
+    --text-color: #f0f0f0;
+  }
+  
+  

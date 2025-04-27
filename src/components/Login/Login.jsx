@@ -13,6 +13,9 @@ function Login({ onLogin }) {
       setError('Por favor, completa todos los campos');
       return;
     }
+
+    // save the username in localstorage
+    localStorage.setItem('username', username);
     
     // Simple validation passed, call the onLogin callback
     onLogin();

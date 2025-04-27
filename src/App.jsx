@@ -7,7 +7,7 @@ import ContactForm from './components/Form/ContactForm';
 import './App.css';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('username'));
 
   const handleLogin = () => {
     setIsLoggedIn(true);

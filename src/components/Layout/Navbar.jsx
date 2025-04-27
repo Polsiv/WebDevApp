@@ -4,6 +4,8 @@ import './Navbar.css';
 function Navbar() {
   const location = useLocation();
 
+  var username = localStorage.getItem('username');
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -26,6 +28,13 @@ function Navbar() {
           >
             Formulario
           </Link>
+          <div className='wrapper'>
+            {username && (
+              <div className="navbar-username">
+                <span>Bienvenido {username}!</span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>

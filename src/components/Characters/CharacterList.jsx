@@ -9,33 +9,41 @@ function CharacterList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        const response = await fetch('https://api.sampleapis.com/futurama/characters');
-        
-        if (!response.ok) {
-          throw new Error('Error al obtener los personajes');
+  useEffect(() => 
+  {
+      const fetchCharacters = async () => 
+      {
+        try 
+        {
+            const response = await fetch('https://api.sampleapis.com/futurama/characters');
+            
+            if (!response.ok) 
+            {
+                throw new Error('Error al obtener los personajes');
+            }
+            
+            const data = await response.json();
+            setCharacters(data);
+            setFilteredCharacters(data);
+            setLoading(false);
+        } 
+        catch (err) 
+        {
+            setError(err.message);
+            setLoading(false);
         }
-        
-        const data = await response.json();
-        setCharacters(data);
-        setFilteredCharacters(data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
+  };
 
     fetchCharacters();
-  }, []);
+  }, []) //It tells React:"Run this useEffect only once — when the component first loads.";
 
-  useEffect(() => {
-    const results = characters.filter(character =>
-      character.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      character.name.last.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+
+  useEffect(() => 
+  {
+      const results = characters.filter(character =>
+          character.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          character.name.last.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     setFilteredCharacters(results);
   }, [searchTerm, characters]);
 

@@ -32,7 +32,7 @@
     if (loading) return <div className="loading">Cargando personaje...</div>;
     if (error) return <div className="error">Error: {error}</div>;
 
-    const { name, images, species, gender, age, occupation, sayings } = character;
+    const { name, images, species, gender, age, occupation, sayings, homePlanet } = character;
     const fullName = `${name.first} ${name.middle || ''} ${name.last}`.trim();
 
     return (
@@ -50,6 +50,7 @@
         <p><strong>Género:</strong> {gender}</p>
         <p><strong>Edad:</strong> {age || 'Desconocida'}</p>
         <p><strong>Ocupación:</strong> {occupation}</p>
+        <p><strong>Planeta:</strong> {homePlanet}</p>
         <div className="sayings">
             <h2>Frases famosas:</h2>
             <ul>

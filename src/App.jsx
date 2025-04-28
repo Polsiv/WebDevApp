@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 import CharacterDetail from './components/Characters/CharacterDetail';
 import CharacterList from './components/Characters/CharacterList';
+import InstallButton from './components/Button/InstallButton';
 import ContactForm from './components/Form/ContactForm';
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <InstallButton />
       <Routes>
         {!isLoggedIn ? (
           <Route path="/" element={<Login onLogin={handleLogin} />} />

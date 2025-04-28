@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { ThemeContext } from '../Context/ThemeContext';
 import { useContext } from 'react';
+import UserMenu from './Usermenu'
 
 function Navbar() {
   const location = useLocation();
@@ -19,6 +20,12 @@ function Navbar() {
         </div>
         
         <div className="navbar-links">
+        <Link 
+          to="/about" 
+          className={location.pathname === '/about' ? 'active' : ''}
+        >
+          Sobre Nosotros
+        </Link>
           <Link 
             to="/characters" 
             className={location.pathname === '/characters' ? 'active' : ''}
@@ -31,14 +38,14 @@ function Navbar() {
           >
             Formulario
           </Link>
+
+          <button onClick={toggle} className='the-button'>Cambiar tema</button>
+
           <div className='wrapper'>
             {username && (
-              <div className="navbar-username">
-                <span>Bienvenido {username}!</span>
-              </div>
+              <UserMenu username={username} />
             )}
           </div>
-          <button onClick={toggle} className='the-button'>Toggle Theme</button>
         </div>
       </div>
     </nav>

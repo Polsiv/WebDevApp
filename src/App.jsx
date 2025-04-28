@@ -4,8 +4,8 @@ import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 import CharacterDetail from './components/Characters/CharacterDetail';
 import CharacterList from './components/Characters/CharacterList';
-import InstallButton from './components/Button/InstallButton';
 import ContactForm from './components/Form/ContactForm';
+import AboutUs from './components/AboutUs/AboutUs'; 
 import './App.css';
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <InstallButton />
       <Routes>
         {!isLoggedIn ? (
           <Route path="/" element={<Login onLogin={handleLogin} />} />
@@ -28,6 +27,7 @@ function App() {
               <Route path="characters" element={<CharacterList />} />
               <Route path="form" element={<ContactForm />} />
               <Route path="/characters/:id" element={<CharacterDetail />} />
+              <Route path="/about" element={<AboutUs />} />
             </Route>
           </>
         )}

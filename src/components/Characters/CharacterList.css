@@ -117,6 +117,13 @@
   color: #fff;
 }
 
+body.dark {
+  .search-container input {
+    background-color: #222;
+    border-color: #333;
+  }
+}
+
 .theme-toggle-button {
   margin-left: 1rem;
   padding: 0.5rem;
@@ -135,4 +142,9 @@
 
 .search-container {
   width: 100%;
+}
+
+.form-container.dark {
+  color: #f0f0f0;
+  background-color: #222;
 }

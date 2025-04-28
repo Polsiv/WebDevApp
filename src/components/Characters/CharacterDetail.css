@@ -3,7 +3,7 @@ body.light {
     --text-color: #000000;
   }
   
-  body.dark {
+body.dark {
     --card-bg: #1e1e1e;
     --text-color: #f0f0f0;
   }
@@ -23,7 +23,7 @@ body.light {
     object-fit: cover;
     border-radius: 20px;
     margin-bottom: 1.5rem;
-    border: 4px solid #ccc;
+
   }
   
   .character-detail h1 {

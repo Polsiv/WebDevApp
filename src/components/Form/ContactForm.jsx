@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './ContactForm.css';
 
+
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,6 +11,7 @@ function ContactForm() {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+
 
   const validate = () => {
     const newErrors = {};

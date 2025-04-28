@@ -96,3 +96,31 @@
     padding: 1.5rem;
   }
 }
+
+body.light {
+  color: #000;
+ 
+}
+
+body.dark {
+  
+  .form-container {
+    color: #fff;
+    background-color: rgb(29, 29, 29);
+  }  
+  .form-container h1 {
+    color: #ffffff;
+  }
+  .form-group label {
+    color: #ffffff;
+  }
+  .form-group input {
+    background-color: #202020;
+    border-color: #535353;
+  }
+
+  .form-group textarea{
+    background-color: #202020;
+    border-color: #535353;
+  } 
+}
